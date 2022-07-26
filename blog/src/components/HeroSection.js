@@ -9,8 +9,8 @@ function HeroSection() {
   return (
     <div className='hero-container'>
         <video src={video} autoPlay loop muted />
-        <h1>THEATER BLOG</h1>
-        <p>Acting is an art form</p>
+        <h1>COOKING BLOG</h1>
+        <p>Cooking brings people together</p>
         <div className="hero-btns">
         <Button className='btns' 
         buttonStyle='btn--outline'

@@ -16,7 +16,7 @@
     font-size: 3rem;
 }
 
-.services {
+.aboutMe {
     background-image: url('../public/images/img-2.jpg');
     background-position: center;
     background-size: fill;
@@ -25,16 +25,16 @@
     font-size: 100px
 }
 
-.products {
+.recipes {
     background-image: url('../public/images/img-1.jpg');;
     background-position: center;
-    background-size: fill;
+    background-size: 100%;
     background-repeat: no-repeat;
     color: #fff;
     font-size: 100px;
 }
 
-.signup {
+.signUp {
     background-image: url('../public/images/img-8.jpg');
     background-position: center;
     background-size: fill;
