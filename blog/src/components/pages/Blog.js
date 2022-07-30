@@ -5,6 +5,7 @@ import Posts from "../Posts/Posts";
 function Blog () {
     return (
         <>
+        
         <Posts />
 
         </>

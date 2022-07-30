@@ -1,12 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "./Post.css"
 export default function Post() {
   return (
+    <Link to="/blog/single">
     <div className='post'>
      <img
      className='postImg'
      src="https://th.bing.com/th/id/R.653768b6ecbbe9d38fe08473421a69f8?rik=NOsib1Lx73YSHw&pid=ImgRaw&r=0"
-     alt="Post" />
+     alt="Post"  />
      <div className="postInfo">
         <div className="postCats">
             <span className="postCat">Music</span>
@@ -28,5 +30,6 @@ export default function Post() {
 
      </p>
     </div>
+    </Link>
   )
 }

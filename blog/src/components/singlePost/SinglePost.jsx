@@ -1,3 +1,4 @@
+
 import "./singlepost.css"
 
 export default function SinglePost() {
@@ -9,7 +10,7 @@ export default function SinglePost() {
       <h1 className="singlePostTitle">
         Nom Nom NOm Nom NOm
         <div className="singlePostEdit">
-            <i className="singlePostIcon fa-solid fa-pen-to-square"></i>
+          <i className="singlePostIcon fa-solid fa-pen-to-square"></i> 
             <i className="singlePostIcon fa-regular fa-trash-can"></i>
         </div>
          </h1>
