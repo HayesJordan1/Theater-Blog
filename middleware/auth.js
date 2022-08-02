@@ -1,0 +1,32 @@
+const jwt = require('jsonWebToken');
+const User = require('../models/User');
+const ErrorResponse = require('../utils/errorResponse')
+
+exports.protect = async (req, res, next) => {
+    let token;
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
+        //Bearer (Token)
+        //This splits up the token into two parts divided at the space
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    if(!token) {
+        return next(new ErrorResponse("Not Authorized to Acess this Route", 401));
+    }
+
+    try {
+        const decoder = jwt.verify(token, process.env.JWT_SECRET)
+
+        const user = await User.findById(decoder.id)
+
+        if(!user) {
+            return next( new ErrorResponse("No user found with this ID", 404))
+        }
+
+        req.user = user;
+
+        next();
+    } catch (error) {
+        return next(new ErrorResponse("Not authorized to access this route", 401));
+    }
+}

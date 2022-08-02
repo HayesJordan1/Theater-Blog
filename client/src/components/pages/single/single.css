@@ -1,0 +1,8 @@
+.single{
+    display: flex;
+    display: block;
+}
+
+.comment-oop{
+   border-top: 1px;
+}
