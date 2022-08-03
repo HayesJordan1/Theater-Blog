@@ -21,21 +21,38 @@ function Cards() {
             </ul>
             <ul className="cards__items">
                 <CardItem 
-                src="images/R (7).jpg"
+                src="https://th.bing.com/th/id/OIP.VJheVPW-C9sgHDbv1uOX4QHaFn?w=235&h=180&c=7&r=0&o=5&pid=1.7"
                 text="WARNING: You wont be able to stop eating!"
-                label='Snacks'
+                label='Lunch'
                 path='/recipes'/>
                 <CardItem 
                 src="images/R (8).jpg"
                 text="Easy to make,        
                 hard to put down"
-                label='Breakfast'
+                label='$2.99'
                 path='/recipes'/>
                   <CardItem 
                 src="images/Simple-Strawberry-Banana-Oat-Smoothie4.jpg"
                 text="The only drink you'll ever need!"
+                label=''
+                path='/recipes'/>
+            </ul>
+            <ul className="cards__items"> 
+            <CardItem 
+                src="images/Simple-Strawberry-Banana-Oat-Smoothie4.jpg"
+                text="The only drink you'll ever need!"
                 label='Drinks'
                 path='/recipes'/>
+
+<CardItem 
+                src="images/R (8).jpg"
+                text="Easy to make,        
+                hard to put down"
+                label='Breakfast'
+                path='/recipes'/>
+
+
+
             </ul>
         </div>
       </div>

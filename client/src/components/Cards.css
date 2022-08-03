@@ -84,7 +84,34 @@
     object-fit: cover;
     transition: all 0.2s linear;
   }
-  
+  .all-menu-buttons {
+    display: inline-block;
+    color: black;
+    display:flex;
+    height: 100px;
+   
+
+  }
+  .title{
+    border-bottom: 1px solid rgb(122, 122, 122);
+    width: 300px;
+    align-content: center;
+    display: block;
+    align-self: center;
+    margin-left: 500px;
+    color: white;
+    text-shadow: 2px black;
+  }
+  .menu-buttons{
+   height: 50px;
+   background-color: coral;
+   border: none;
+   border-radius: 10px;
+   margin: 10px;
+   width: 16%;
+   color: white;
+   font-size: 30px;
+  }
   .cards__item__img:hover {
     transform: scale(1.1);
   }

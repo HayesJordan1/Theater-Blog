@@ -9,8 +9,8 @@ import Footer from './components/Footer';
 import Blog from './components/pages/Blog';
 import Single from './components/pages/single/Single';
 import Write from './components/pages/Write/Write';
-import Login from './components/pages/Login/Login Screen';
-import Register from './components/pages/Login/Register Screen';
+import LoginScreen from './components/pages/Login/Login Screen';
+import RegisterScreen  from './components/pages/Login/Register Screen';
 import ForgotPassword from './components/pages/Login/Forgot Password';
 import ResetPassword from './components/pages/Login/Reset Password';
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -21,13 +21,13 @@ function App() {
 <>
 <Router>
        <Navbar /> 
+      
       <Routes>
-        <PrivateRoute exact path="/" component={PrivateScreen} />
        <Route path='/' exact element={<Home />} />
-         <Route path='/recipes' exact element={<Recipes />} />
+        <Route path='/recipes' exact element={<Recipes />} />
         <Route path='/about-me' exact element={<AboutMe />} />
-        <Route path='/login' exact element={<Login />} />
-        <Route path='/register' exact element={<Register />} />
+        <Route path='/login' exact element={<LoginScreen />} />
+        <Route path='/register' exact element={<RegisterScreen />} />
         <Route path='/forgotpassword' exact element={<ForgotPassword />} />
         <Route path='/passwordreset/:resetToken' exact element={<ResetPassword />} />
         <Route path='/blog' exact element={<Blog />} />

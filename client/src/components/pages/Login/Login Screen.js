@@ -1,78 +1,86 @@
-import {useState} from 'react';
-import {axios} from 'axios';
-import { Link } from 'react-router-dom';
-import { Button } from '../.././././Button';
-import { useEffect } from 'react';
-import './LoginScreen.css' 
-function Login ( history ) {
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import "./LoginScreen.css";
 
-    const [email, setEmail]= useState("");
-    const [password, setPassword]= useState("");
-    const [error, setError]= useState("");
+const LoginScreen = ({ history }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-    useEffect(() => {
-    if(localStorage.getItem("authToken")) {
-        history.push("/")
-    }
-    }, [history]);
 
-    const loginHandler= async (e) => {
+  const loginHandler = async (e) => {
     e.preventDefault();
 
     const config = {
-      header: {
-        "Content-Type": "application/json"
-      }
-    }
+      Headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
     try {
-      const {data} = await axios.post("/api/auth/login", { email, password}, 
-      config)
+      const { data } = await axios.post(
+        "/api/auth/login",
+        { email, password },
+        config
+      );
 
-      localStorage.setItem("authToken", data.token)
-      history.push("/")
+      localStorage.setItem("authToken", data.token);
+
+      history.push("/");
     } catch (error) {
-      setError(error.response.data.error)
+      setError(error.response.data.error);
       setTimeout(() => {
         setError("");
-      }, 5000)
+      }, 5000);
     }
-    }
+  };
 
-
-    return(
+  return (
     <div className="login-screen">
-      <form className="login-screen_form" onSubmit={loginHandler}>
-        <h3 className='login-screen_title'> Login</h3>
+      <form onSubmit={loginHandler} className="login-screen__form">
+        <h3 className="login-screen__title">Login</h3>
         {error && <span className="error-message">{error}</span>}
         <div className="form-group">
-            <label htmlFor='email'>Email:</label>
-            <input 
-            type="email" 
-            required 
-            id="email" 
-            placeholder='Enter Email Adress' 
-            value={email} 
-            onChange={() => setEmail(e.target.value)} />
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            required
+            id="email"
+            placeholder="Email address"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            tabIndex={1}
+          />
         </div>
         <div className="form-group">
-            <label htmlFor='password'>Password:</label>
-            <input 
-            type="password" 
-            required 
-            id="password" 
-            placeholder='Enter Password' 
-            value={password} 
-            onChange={() => setPassword(e.target.value)} />
+          <label htmlFor="password">
+            Password:{" "}
+            <Link to="/forgotpassword" className="login-screen__forgotpassword">
+              Forgot Password?
+            </Link>
+          </label>
+          <input
+            type="password"
+            required
+            id="password"
+            autoComplete="true"
+            placeholder="Enter password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            tabIndex={2}
+          />
         </div>
-        <Button
-        type="submit"
-        buttonStyle='btn--primary'>
+        <button type="submit" className="btn btn-primary">
           Login
-        </Button>
-      <span className="login-screen__subtext">Don't have an account? <Link to="/register">Join Today!</Link></span>
+        </button>
+
+        <span className="login-screen__subtext">
+          Don't have an account? <Link to="/register">Register</Link>
+        </span>
       </form>
     </div>
-    )
-}
-export default Login
+  );
+};
+
+export default LoginScreen;
