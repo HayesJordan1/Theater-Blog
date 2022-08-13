@@ -3,6 +3,7 @@ const express = require('express');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/error');
 
+
 //Connect DB
 connectDB();
 

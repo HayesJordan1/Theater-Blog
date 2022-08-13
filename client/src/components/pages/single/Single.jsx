@@ -6,10 +6,6 @@ export default function Single() {
   return (
     <div className="single">
         <SinglePost /> 
-        <div className='comment-oop'>
-        <Comments currentUserId="1"/>
-        
-        </div>
     </div>
      
   )

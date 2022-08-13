@@ -1,35 +1,37 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./Post.css"
-export default function Post() {
+export default function Post({post}) {
+  const PF = "http://localhost:5000/images/"
   return (
-    <Link to="/blog/single">
+   
     <div className='post'>
+      {post.photo && 
      <img
      className='postImg'
-     src="https://th.bing.com/th/id/R.653768b6ecbbe9d38fe08473421a69f8?rik=NOsib1Lx73YSHw&pid=ImgRaw&r=0"
+     src={PF + post.photo}
      alt="Post"  />
+      }
      <div className="postInfo">
-        <div className="postCats">
-            <span className="postCat">Music</span>
-            <span className="postCat">Life</span>
-        </div>
-        <span className="postTitle">
-        Lorem ipsum dolor sit amet
-        </span>
+        
+        <Link  to={`/post/${post._id}`} className="link">
+          <span className='postTitle'>
+        {post.title}
+        </span></Link>
         <hr />
-        <span className="postDate">1 hour ago</span>
+        <div className="postCat">
+          {post.categories.map((c) => (
+            <Link to={`/?cat=${c.name}`} className="link">
+            <span className="postCat">{c.name}</span>
+            </Link>
+          ))}
+
+        </div>
+        <span className="postDate">{new Date(post.createdAt).toDateString()}</span>
      </div>
      <p className='postDesc'>
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-       aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
-       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-       non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+    {post.desc}
      </p>
     </div>
-    </Link>
   )
 }

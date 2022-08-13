@@ -70,3 +70,76 @@ video {
         width: 100%;
     }
 }
+
+
+/* import { useContext, useState } from "react";
+import { Link } from "react-router-dom"
+import { Context } from "../context/context";
+import "./Navbar.css"
+
+export default function Navbar() {
+    const {user, dispatch} = useContext(Context)
+    const {click, setClick} = useState(false)
+
+    const handleClick = !setClick
+    const PF = "http://localhost:5000/images"
+
+    // const handleLogout = () => {
+    //   dispatch({ type: "LOGOUT"})
+    // }
+    return(
+        <div className="top">
+            <div className="topLeft">
+            <i class="fa-brands fa-square-facebook sidebarIcon"/>
+                <i class="fa-brands fa-square-instagram sidebarIcon"/>
+                <i class="fa-brands fa-square-pinterest sidebarIcon"/>
+                <i class="fa-brands fa-square-twitter sidebarIcon"/>
+            </div>
+            <div className="topCenter">
+                <ul className="topList">
+                    <li className="topListItem">
+                        <Link className="link" to="/">
+                            Home
+                        </Link>
+                    </li>
+                    <li className="topListItem">
+                        <Link className="link" to="/">
+                            WRITE
+                        </Link>
+                    </li>
+                    <li className="topListItem">
+                        <Link className="link" to="/">
+                            RECIPES
+                        </Link>
+                    </li>
+                    <li className="topListItem">
+                        <Link className="link" to="/">
+                            BLOG
+                        </Link>
+                    </li>
+                </ul>
+            </div>
+            <div className="topRight">
+                {user? (
+                    <Link to="/settings">
+                        <img className="topImg" src={PF+user.profilePic} alt="Profile Picture" />
+                    </Link>
+                ): (
+                    <ul className="topList">
+                        <li className="topListItem">
+                        <Link className="link" to="/login">
+                            Login
+                        </Link>
+                    </li>
+                    <li className="topListItem">
+                        <Link className="link" to="/register">
+                            Register
+                        </Link>
+                    </li>
+                    </ul>
+                )}
+                <i className="topSearchIcon fas fa-search"></i>
+            </div>
+        </div>
+    )
+} */

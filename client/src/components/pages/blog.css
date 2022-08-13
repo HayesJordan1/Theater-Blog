@@ -1,0 +1,10 @@
+.blog{
+    display: flex;
+}
+.imgo{
+    width: 80%;
+    height: 300px;
+    display: cover;
+    margin-left: 200px ;
+    margin-right: 200px;
+}

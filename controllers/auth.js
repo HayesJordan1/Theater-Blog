@@ -2,53 +2,53 @@ const crypto = require('crypto')
 const User = require('../models/User')
 const ErrorResponse = require('../utils/errorResponse');
 const sendEmail = require('../utils/sendEmail')
-exports.register = async (req, res, next) => {
-    const {username, email, password} = req.body;
+// exports.register = async (req, res, next) => {
+//     const {username, email, password} = req.body;
 
-    try {
-     const user = await User.create({
-        username, 
-        email, 
-        password,
-     });
+//     try {
+//      const user = await User.create({
+//         username, 
+//         email, 
+//         password,
+//      });
 
-     sendToken(user, 201, res);
+//      sendToken(user, 201, res);
      
-    } catch (error) {
-        res.status(500).json({
-            sucess:  false,
-            error: error.message,
-        })
-    }
-};
+//     } catch (error) {
+//         res.status(500).json({
+//             sucess:  false,
+//             error: error.message,
+//         })
+//     }
+// };
 
-exports.login = async (req, res, next) => {
-   const {email, password} = req.body;
+// exports.login = async (req, res, next) => {
+//    const {email, password} = req.body;
 
-   if(!email || !password) {
-    return next(new ErrorResponse("Please provide an email and password", 400))
-   }
+//    if(!email || !password) {
+//     return next(new ErrorResponse("Please provide an email and password", 400))
+//    }
 
-    try {
-        const user = await User.findOne({ email }).select("+password");
+//     try {
+//         const user = await User.findOne({ email }).select("+password");
 
-        if(!user) {
-            return next(new ErrorResponse("Invalid Credentials", 401))
-        }
+//         if(!user) {
+//             return next(new ErrorResponse("Invalid Credentials", 401))
+//         }
 
-        const isMatch = await user.matchPasswords(password);
+//         const isMatch = await user.matchPasswords(password);
 
-        if(!isMatch) {
-            return next(new ErrorResponse("Invalid Credentials", 401))
-        }
-     sendToken(user, 200, res);
+//         if(!isMatch) {
+//             return next(new ErrorResponse("Invalid Credentials", 401))
+//         }
+//      sendToken(user, 200, res);
       
 
 
-    } catch (error) {
-        next(error);
-    }
-};
+//     } catch (error) {
+//         next(error);
+//     }
+// };
 
 exports.forgotpassword = async (req, res, next) => {
     const {email} = req.body;

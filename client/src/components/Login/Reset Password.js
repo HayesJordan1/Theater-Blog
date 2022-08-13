@@ -84,9 +84,12 @@ const ResetPassword = ({ history, match }) => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
+        
+        
         <button type="submit" className="btn btn-primary">
           Reset Password
         </button>
+
       </form>
     </div>
   );

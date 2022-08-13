@@ -39,6 +39,7 @@ position: relative;
     border: none;
     padding: 20px;
     width: 70vw;
+    background-color: rgba(250, 235, 215, 0);
 }
 
 .writeInput:focus{

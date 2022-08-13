@@ -158,6 +158,10 @@ body {
     text-align: center;
     margin: 0.5rem 0;
 }
+.link{
+    text-decoration: none;
+    color: rgb(97, 87, 87);
+}
 
 .success-message {
     width:100%;

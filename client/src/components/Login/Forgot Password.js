@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import "./ForgotPassword.css";
+import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -56,7 +57,10 @@ const ForgotPassword = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-        </div>
+        </div> 
+        <span className="forgotpassword-screen__subtext">
+          Remebered your password? <Link to="/login">Login</Link>
+        </span>
         <button type="submit" className="btn btn-primary">
           Send Email
         </button>
